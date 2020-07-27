@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Emission of CO2 from Cars</title>
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Emission of CO2 from Cars</h2>
+                </div>
+                <div class="card-body">
+                    <form action="{{ url_for('y_predict')}}"method="post">
+                        <div class="form-row">
+                            <div class="name">Engine Size</div>
+                            <div class="value">
+                                <div class="input-group">
+									<input class="input--style-5" type="number" step="0.01" min="0" name="Engine Size" placeholder="Engine Size" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Cylinders</div>
+                            <div class="value">
+                                <div class="input-group">
+									<input class="input--style-5" type="number" step="0.01" min="0"  name="Cylinders" placeholder="Cylinders" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Fuel Type</div>
+                            <div class="value">
+                                <div class="input-group">
+											<input class="input--style-5" type="number"  min="0" max="3" name="Fuel Type" placeholder="Fuel Type{0-D 1-E 2-Z 3-X}" required="required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Fuel Consumption CITY</div>
+                            <div class="value">
+                                <div class="input-group">
+											<input class="input--style-5" type="number" step="0.01" min="0"  name="Fuel Consumption CITY" placeholder="Fuel Consumption CITY" required="required" />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Fuel Consumption HWY</div>
+                            <div class="value">
+                                <div class="input-group">
+											<input class="input--style-5" type="number" step="0.01" min="0"  name="Fuel Consumption HWY" placeholder="Fuel Consumption HWY" required="required" />
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Fuel Consumption COMB MPG</div>
+                            <div class="value">
+                                <div class="input-group">
+											<input class="input--style-5" type="number" step="0.01" min="0"  name="Fuel Consumption COMB MPG" placeholder="Fuel Consumption COMB MPG" required="required" />
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Predict</button>
+                        </div>
+                    </form>
+                    <center>
+					{{ prediction_text }}
+          </center>
+                </div>
+	
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
